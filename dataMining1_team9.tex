@@ -21,6 +21,7 @@ Data and Web Science Group\\
 Prof. Dr. Bizer\\
 University of Mannheim}
 
+\institute{}
 \maketitle              % typeset the header of the contribution
 \newpage
 %1. What is the problem you are solving?
@@ -50,16 +51,27 @@ The dataset consists of 18000 rows and 89 attributes and was extracted from http
 %1. What preprocessing steps will be required?
 %2. Which algorithms do you plan to use?
 \section{Project approach and evaluation method}
+%We want to divide the dataset in k subsets and use one subset as the testing subset and k-1 as the training subset.\\
+We want to apply the following techniques to our dataset:
+\begin{itemize}
+\item logistic regresion
+\item random forest 
+\item naive bayes
+\item decision tree
+\end{itemize}
 
-We want to divide the dataset in k subsets and use one subset as the testing subset and k-1 as the training subset. \\
-The classification results can be compared by looking at the ROC curves.\\
-In order to measure our success we want to use a k - fold - cross validation. \\
+
+In order to measure our success we want to use a k - fold - cross validation.\\
+Finally the models from kNN and decision trees should be compared using ROC curves.
+
 
 
 
 \section{What do you expect your results to look like? (Model/Clusters/Patterns)}
 The result is a classification model. The ideal position for each player will be based on his characteristics.\\
 We will be determining clusters by assigning the players in each positions as different clusters.
+
+
 
 
 
