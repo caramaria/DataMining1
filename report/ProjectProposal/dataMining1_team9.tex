@@ -1,0 +1,108 @@
+
+\documentclass[runningheads]{llncs}
+
+\usepackage{graphicx}
+
+\begin{document}
+%
+\title{Data Mining 1: \\
+Predicting positions of soccer players  \\
+Project Outline}
+
+
+\vspace{2cm}
+\author{Team No. 9\\
+\vspace{1cm}
+presented by\\
+Jurgen Amedani (1628022), Cara Maria Damm (1631263), Paul Hesselmann (1371380), Allwyn Menezes (1671634), Martin Mlinac (1364487), Carmen Rannefeld (1631070)\\
+\vspace{1cm}
+submitted to the \\
+Data and Web Science Group\\
+Prof. Dr. Bizer\\
+University of Mannheim}
+
+\institute{}
+\maketitle              % typeset the header of the contribution
+%\newpage
+%1. What is the problem you are solving?
+\section{Problem description}
+There are a great number of analysis in sports, especially soccer: Who is most likely to win the world championship? Who will be the player of the year? Or which position would be ideal so score? \\
+
+Our group project aims to understand the characteristics of soccer players on a certain field position. Are there specific characteristics that determine if a player will be an amazing goal keeper or a top scorer?\\
+After knowing the characteristics of the positions we want to conclude if the players in available in the FIFA'19 edition are playing in the position which is best suited for him.\\
+In case a player isn't in his ideal spot would changing his position increase his performance?
+
+
+%What data will you use?
+% Where will you get it?
+%How will you gather it?
+\section{Data Set}
+In order to perform our analysis, we will use the FIFA 19 soccer player data which is available on Kaggle.\\
+The dataset consists of 18000 rows and 89 attributes and was extracted from https://sofifa.com/.
+
+%3.
+
+%How will you solve the problem? 1. What preprocessing steps will be required?
+%2. Which algorithms do you plan to use?
+%• Be as specific as you can!
+%\section{How will we save the problem}
+
+%How will you measure success? (Evaluation method)
+%1. What preprocessing steps will be required?
+%2. Which algorithms do you plan to use?
+\section{Project approach and evaluation method}
+%We want to divide the dataset in k subsets and use one subset as the testing subset and k-1 as the training subset.\\
+We want to apply the following techniques to our dataset:
+\begin{itemize}
+\item logistic regression
+\item random forest 
+\item naive bayes
+\item decision tree
+\end{itemize}
+
+
+In order to measure our success, we want to use a k - fold - cross validation.\\
+Finally, the models from kNN and decision trees should be compared using ROC curves.
+
+
+
+
+\section{What do you expect your results to look like? (Model/Clusters/Patterns)}
+The result is a classification model. The ideal position for each player will be based on his characteristics.\\
+We will be determining clusters by assigning the players in each position as different clusters.
+
+
+
+
+
+
+% ---- Bibliography ----
+%
+% BibTeX users should specify bibliography style 'splncs04'.
+% References will then be sorted and formatted in the correct style.
+%
+% \bibliographystyle{splncs04}
+% \bibliography{mybibliography}
+%
+%\begin{thebibliography}{8}
+%\bibitem{ref_article1}
+%Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
+%
+%\bibitem{ref_lncs1}
+%Author, F., Author, S.: Title of a proceedings paper. In: Editor,
+%F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
+%Springer, Heidelberg (2016). \doi{10.10007/1234567890}
+%
+%\bibitem{ref_book1}
+%Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
+%Location (1999)
+%
+%\bibitem{ref_proc1}
+%Author, A.-B.: Contribution title. In: 9th International Proceedings
+%on Proceedings, pp. 1--2. Publisher, Location (2010)
+%
+%\bibitem{ref_url1}
+%LNCS Homepage, \url{http://www.springer.com/lncs}. Last accessed 4
+%Oct 2017
+%\end{thebibliography}
+\end{document}
