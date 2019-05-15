@@ -1,1 +1,151 @@
 \section{Structure and Size of Data}
+In the context of football analytics, the FIFA 19 dataset is used including information about every player registered database of www.sofifa.com~\cite{ref_sofifa}. More than 18207 players are registered in the moment the dataset was created. The FIFA 19 complete dataset includes 86 different attributes. The attributes are listed in the table below. \newline
+The key attributes are ID, name, age, nationality, value, potential, value and special which are filled in all the cases. The 86 attributes can be grouped into ten groups:
+
+
+\setlength{\columnseprule}{0.4pt}
+\begin{multicols}{3}
+\begin{itemize}
+\item	Personal information
+\begin{itemize}
+\item	Database ID
+\item	Name
+\item	Age
+\item	Nationality
+\item	Height 
+\item	Weight
+\end{itemize}
+\item	Contract Information
+\begin{itemize}
+\item	Club
+\item	Wage
+\item	Release Clause
+\item	Jersey Number
+\item	Joined date
+\item	Loaned from
+\item	Contract valid until
+\end{itemize}
+\item	Mentality Statistics
+\begin{itemize}
+\item	Aggression
+\item	Interceptions
+\item	Positioning
+\item	Vision
+\item	Penalties
+\item	Composure
+\columnbreak
+\end{itemize}
+\item	Sports and Football information
+\begin{itemize}
+\item	Value 
+\item	International Reputation
+\item	Overall Ranking
+\item	Potential (correlation to overall ranking)
+\item	Special 
+\item	Position (club)
+\item	Position (national team)
+\item	Preferred Foot
+\item	Week Foot
+\item	Skill Moves
+\item	Work Rate Defense
+\item	Work Rate Attack 
+\item	Body Type 
+\item	Real Face 
+\end{itemize}
+\item	Attacking Statistics
+\begin{itemize}
+\item	Crossing
+\item	Finished
+\item	Heading Accuracy
+\item	Short Passing
+\item	Volleys
+\end{itemize}
+\columnbreak
+\item	Skill Statistics
+\begin{itemize}
+\item	Dribbling
+\item	Curve
+\item	Free Kick Accuracy
+\item	Long Passing
+\item	Ball Control
+\end{itemize}
+\item	Defending Statistics
+\begin{itemize}
+\item	Marking
+\item	Standing Tackle
+\item	Sliding Tackle
+\end{itemize}
+\item	Movement Statistics
+\begin{itemize}
+\item	Acceleration
+\item	Sprint Speed
+\item	Agility
+\item	Reactions
+\item	Balance
+\end{itemize}
+\item	Goalkeeping Statistics
+\begin{itemize}
+\item	GK Diving
+\item	GK Handling
+\item	GK Kicking
+\item	GK Positioning
+\item	GK Reflexes
+\end{itemize}
+\item	Power Statistics
+\begin{itemize}
+\item	Shot Power
+\item	Jumping
+\item	Stamina
+\item	Strength
+\item	Long Shots
+\end{itemize}
+\end{itemize}
+\end{multicols}
+
+In the dataset one player is assigned to exactly position out of 25 available positions. As players might play on different positions during a season or training the potential for 24 positions (except goalkeeper position) is recognized as well in the dataset. The position is written down as abbreviation meaning:
+\setlength{\columnseprule}{0.4pt}
+\begin{multicols}{3}
+\begin{itemize}
+\item	Forwards:
+\begin{itemize}
+\item	RF Right forward
+\item	CF Center forward
+\item	LF Left forward
+\item	RS Right Striker
+\item	ST Striker
+\item	LS Left Striker
+\item	RW Right wing
+\item	LW Left wing 
+\end{itemize}
+\item	Midfielders:
+\begin{itemize}
+\item	LAM Left attacking midfield
+\item	RAM Right attacking midfield
+\item	CAM Center attacking midfield
+\item	LM Left midfield
+\item	CM central midfield
+\item	LCM Left center midfield
+\item	RCM Right center midfield
+\item	RM Right midfield
+\item	LDM Left defensive midfield
+\item	CDM center defensive midfield
+\item	RDM Right defensive midfield
+\columnbreak
+\end{itemize}
+\item	Defensive: 
+\begin{itemize}
+\item	LWB Left Wing Back
+\item	RWB Right Wing Back
+\item	LCB Left center back 
+\item	LB Left back
+\item	RCB Right center back
+\item	CB Center back
+\item	RB Right back
+\end{itemize}
+\end{itemize}
+\end{multicols}
+%ref ref_gitplayerstatistics
+These position potentials are not applied for goalkeepers.
+Not all the attributes have filled values. One reason is that for example not every player is loanded from another club. Other reason is the missing information as some players are young and not every information is yet collected. There are for example 48 players were only key attributes like personal information are filled. A reason might that they are new in the database not better described yet. \newline
+Attributes of the statistics groups are continuous data with a range from 0 to 100. Other attributes are categorical data. The dataset includes numerical attributes like wage, release clause, weight and height. \newline
+The wage and release clauses starts from a value of 1000 while the specialty attribute is not smaller than 731. Release clause and wage are reported in a format including k (thousand) and m (million). These values have been converted. The height is converted from foot into centimeter. The weight has been recalculated from pound into kilogram.  For the attributes height and weight zero values are entered if not information is available and needed to be filtered out.
