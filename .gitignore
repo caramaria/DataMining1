@@ -1,1 +1,5 @@
-/report/ProjectDocumentation/dataMining1_team9.log
+*.log
+*.aux
+*.dvi
+*.synctex.gz
+*.pdf
