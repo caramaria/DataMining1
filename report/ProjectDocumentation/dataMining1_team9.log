@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.3)  15 MAY 2019 17:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.3)  16 MAY 2019 09:06
 entering extended mode
 **./dataMining1_team9.tex
 (dataMining1_team9.tex
@@ -323,37 +323,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 138--139
 []\OT1/cmr/m/n/10 RWB Right
  []
 
-) (pre.tex) (datamining.tex
+) (pre.tex [3]
+Overfull \hbox (15.4882pt too wide) in paragraph at lines 17--18
+[]\OT1/cmr/m/n/10 "CAM", "CDM", "LCM", "CM", "LAM", "LDM", "LM", "RAM", "RCM",
+ []
+
+) (datamining.tex
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `htbp') on input line 4.
+               Default added (so using `htbp') on input line 11.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 5.
+(Font)              <9> on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 5.
+(Font)              <6> on input line 12.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `htbp') on input line 25.
+
 )
 No file dataMining1_team9.bbl.
-[3] [4] (dataMining1_team9.aux) ) 
+
+Overfull \hbox (39.55997pt too wide) in paragraph at lines 71--73
+[]\OT1/cmr/m/n/9 Rapidminer Doc-u-men-ta-tion https://docs.rapidminer.com/lates
+t/studio/operators/modeling/ 
+ []
+
+[4] [5] (dataMining1_team9.aux) ) 
 Here is how much of TeX's memory you used:
  1918 strings out of 492945
- 28496 string characters out of 3125365
- 119640 words of memory out of 3000000
+ 28503 string characters out of 3125365
+ 119650 words of memory out of 3000000
  5803 multiletter control sequences out of 15000+200000
  7289 words of font info for 26 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,13n,25p,556b,283s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,13n,25p,556b,281s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/D062281/AppData/Local/Programs/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/D062281/AppData/Local
 /Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/D06228
 1/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C
 :/Users/D062281/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr10.pfb><C:/Users/D062281/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmr9.pfb><C:/Users/D062281/AppData/Local/Programs/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on dataMining1_team9.pdf (4 pages, 94783 bytes).
+m/cmmi10.pfb><C:/Users/D062281/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmmi9.pfb><C:/Users/D062281/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/D062281/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/D062281/AppData
+/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/D0
+62281/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb
+><C:/Users/D062281/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb>
+Output written on dataMining1_team9.pdf (5 pages, 130155 bytes).
 PDF statistics:
- 39 PDF objects out of 1000 (max. 8388607)
+ 58 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

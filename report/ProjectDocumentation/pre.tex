@@ -1,2 +1,27 @@
 \section{Preprocessing}
 %transformation of data
+
+Not all 83 attributes are necessary to predict the position of a player.
+We applied the optimize selection operator and analyzed the log reports from Rapidminer to select the important attributes.
+During one run the attributes Sliding tackle, Skill move, Long passing, LCB (Left center back), Heading accuracy, LAM (Left attacking midfield), Finishing, Crossing, Sprint speed and LB (left back) were rated with a relative importance. With no influence the other playing position results were weighted. \newline
+%(Bild Einfügen)
+Attributes marked as personal and contract information were excluded from the dataset as they are not relevant to determine players position. 
+The data mining processes started with a higher aggregation of players position which results in four groups: defender, midfielder, strikers and goalkeepers. The following concrete positions were grouped together in an attribute called Position\_grouped replacing the original position attribute:
+\begin{itemize} 
+\item Strikers
+\begin{itemize}
+\item "ST", "CF", "LF", "LS", "LW", "RF", "RS" and "RW"
+\end{itemize}
+\item Midfielder
+\begin{itemize}
+\item "CAM", "CDM", "LCM", "CM", "LAM", "LDM", "LM", "RAM", "RCM", "RD", "RM"
+\end{itemize}
+\item Defender
+\begin{itemize} 
+\item "CB", "LB", "LCB", "LWB", "RB", "RCB", "RWB"
+\end{itemize}
+\item Goalkeeper
+\begin{itemize}
+\item "GK"
+\end{itemize}
+\end{itemize}
