@@ -1,0 +1,41 @@
+\subsection{Result using Gradient Boosted Trees}
+
+The gradient boosted trees algorithm is used to create an ensemble of decision trees trough gradually improved estimations. The output is a classification model which can be applied to the test dataset for a prediction of the label attribute position\_grouped. 
+One advantage is the written report about the weights of attributes with respect to the label attribute.~\cite{ref_rapidminergbt}
+The number of trees was set to 30. The maximal depth was initially set to 15, while the best result were scored with a maximal depth of 30.
+The number of bins was set to 30.  
+The process was executed with different settings regarding the maximal depth of trees. In summary, allowing a higher maximal depth resulted in better scores for $R^2$, recall and precision. Result of this values are shown in table \ref{Tab:GBT}.
+
+
+\begin{table}[]
+\begin{tabular}{@{}lllllll@{}}
+\textbf{Run} & \textbf{\begin{tabular}[c]{@{}l@{}}Max. \\ tree depth\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Number \\ of folds\end{tabular}} & \textbf{Recall} & \textbf{Precision} & \textbf{$R^2$} & \textbf{\begin{tabular}[c]{@{}l@{}}Mean squarred\\ error\end{tabular}} \\
+1            & 10                                                                  & 15                                                                   & 88,21 \%               & 89,01 \%                  & 64,4 \%                       & 0.33733332                                                             \\
+2            & 15                                                                  & 15                                                                  & 88,05 \%               & 88,68 \%                  & 65,3 \%                       & 0.3289592                                                              \\
+3            & 25                                                                  & 15                                                                  & 88,09 \%               & 88,70 \%                  & 65,4 \%                       & 0.3286427                                                              \\
+4            & 30                                                                  & 15                                                                  & 88.09\%               & 88.73 \%                  & 65,4 \% & 0.328648                                                                     
+\end{tabular}
+\label{Tab:GBT}
+\caption{Performance results of gradient boosted trees}
+\end{table}
+
+As important attributes the following were highlighted in table \ref{Tab:GBTImportantAttributes}:
+
+\begin{table}[]
+\begin{tabular}{@{}llll@{}}
+\toprule
+Variable        & \begin{tabular}[c]{@{}l@{}}Relative \\ Importance\end{tabular} & \begin{tabular}[c]{@{}l@{}}Scales \\ Importance\end{tabular}    & Percentage \\ \midrule
+SlidingTackle   & 43887.371094        & 1.000000 & 0.179607   \\
+Skill Moves     & 40664.996094        & 0.926576                      & 0.166419   \\
+LongPassing     & 27751.718750        & 0.632340                      & 0.113572   \\
+LCB             & 23368.140625        & 0.532457                      & 0.095633   \\
+HeadingAccuracy & 22303.111328        & 0.508190                      & 0.091274   \\
+LAM             & 16302.590820        & 0.371464                      & 0.066717   \\
+Finishing       & 9715.319336         & 0.221369                      & 0.039759   \\
+Crossing        & 9004.551758         & 0.205174                      & 0.036851   \\
+SprintSpeed     & 5180.378906         & 0.118038                      & 0.021200   \\
+ShortPassing    & 3899.299316         & 0.088848                      & 0.015958   \\ \bottomrule
+\end{tabular}
+\label{Tab:GBTImportantAttributes}
+\caption{Important Attributes according to gradient boosted trees algorithm}
+\end{table}
