@@ -1,4 +1,16 @@
 \subsection{Deep Learning}
 
-Test Paul.\\
-xx
+The Auto Model function in Rapidminer suggested the Deep Learning operator as the operator with the highest accuracy. Deep Learning is an Operator which is based on an multi layer artificial neural network. Depending on the used data set it scores an accuracy of roughly 0.88. This mainly depends on the number of goal keepers included in the data set as the goalkeepers are always correctly classified. Besides the goalkeepers the model has the highest accuracy for defenders then midfielders and the lowest accuracy for strikers. This result matches the expectations as the boundaries between strikers and midfielders are blurry. //
+The automatically modeled design is complex and includes many operators that are not contributing to the result. Therefore we tried to slim down the design and deleted operators that were not used. 
+
+
+M: Confusion Matrix (vertical: actual; across: predicted):\\
+            Defender  Midfielder  Strikers  Goalkeeper   Error              Rate\\
+  Defender      3094         145         1           0  0.0451  =    146 / 3,240\\
+Midfielder       233        3257       285           0  0.1372  =    518 / 3,775\\
+  Strikers        12         330      1563           0  0.1795  =    342 / 1,905\\
+Goalkeeper         0           0         0        1099  0.0000  =      0 / 1,099\\
+    Totals      3339        3732      1849        1099  0.1004  = 1,006 / 10,019\\
+    
+    reference\\
+\url{https://docs.rapidminer.com/latest/studio/operators/modeling/predictive/neural_nets/deep_learning.html}
