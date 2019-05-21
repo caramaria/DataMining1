@@ -2,43 +2,48 @@
 
 The gradient boosted trees algorithm is used to create an ensemble of decision trees trough gradually improved estimations. The output is a classification model which can be applied to the test dataset for a prediction of the label attribute position\_grouped. \newline
 One advantage is the written report about the weights of attributes with respect to the label attribute.~\cite{ref_rapidminergbt}
-The number of trees was set to 30. The maximal depth was initially set to 15, while the best result was scored with a maximal depth of 30.
-The number of bins was set to 30.  
-The process using cross-validation was executed different maximal depth of trees (10, 15, 25 and 30). With less than one percent deviation a recall of 88,21 \% and a precision of 89,01 \% was scored during the four different runs. The mean squared  errors was between 0.32 and 0.33. The best result was scored having a maximal tree depth of 10.
+%%
+%The number of trees was set to 30. The maximal depth was initially set to 15, while the best result was scored with a maximal depth of 30.
+%The number of bins was set to 30.  
+%The process using cross-validation was executed different maximal depth of trees (10, 15, 25 and 30). With less than one percent deviation a recall of 88,21 \% and a precision of 89,01 \% was scored during the four different runs. The mean squared  errors was between 0.32 and 0.33. The best result was scored having a maximal tree depth of 10.
 
+To run the algorithm a optimize selection operator was applied to test the best combination of maximal tree depth and number of trees. The highest accuracy result was scored building 32 different trees. The maximal depth had no influence according to the operator testing with a step size of 3, since a accuracy of 87 \% was archieved no matter if the tree depth was 10 or 25. 
 
-As important attributes the following were highlighted in table \ref{Tab:GBTImportantAttributes}:
+The gradient boosted algorithm logs the most important variables to build the model. The identified attributed are highlighted in table \ref{Tab:GBTImportantAttributes}:
 
 \begin{table}[]
 \begin{tabular}{@{}llll@{}}
 \toprule
 Variable        & \begin{tabular}[c]{@{}l@{}}Relative \\ Importance\end{tabular} & \begin{tabular}[c]{@{}l@{}}Scales \\ Importance\end{tabular}    & Percentage \\ \midrule
-SlidingTackle   & 43887.371094        & 1.000000 & 0.179607   \\
-Skill Moves     & 40664.996094        & 0.926576                      & 0.166419   \\
-LongPassing     & 27751.718750        & 0.632340                      & 0.113572   \\
-LCB             & 23368.140625        & 0.532457                      & 0.095633   \\
-HeadingAccuracy & 22303.111328        & 0.508190                      & 0.091274   \\
-LAM             & 16302.590820        & 0.371464                      & 0.066717   \\
-Finishing       & 9715.319336         & 0.221369                      & 0.039759   \\
-Crossing        & 9004.551758         & 0.205174                      & 0.036851   \\
-SprintSpeed     & 5180.378906         & 0.118038                      & 0.021200   \\
-ShortPassing    & 3899.299316         & 0.088848                      & 0.015958   \\ \bottomrule
+HeadingAccuracy & 55590                                                                                                                                  & 1                                                                                                                                    & 0,21       \\
+SlidingTackle   & 48785                                                                                                                                  & 0,877                                                                                                                                & 0,19       \\
+Vision          & 45292                                                                                                                                  & 0,814                                                                                                                                & 0,17       \\
+Finishing       & 26549                                                                                                                                  & 0,477                                                                                                                                & 0,10       \\
+LongPassing     & 25082                                                                                                                                  & 0,207                                                                                                                                & 0,09       \\
+Crossing        & 11509                                                                                                                                  & 0,07                                                                                                                                 & 0,04       \\
+ShortPassing    & 3940                                                                                                                                   & 0,0659                                                                                                                               & 0,015      \\
+FKAccuracy      & 3620                                                                                                                                   & 0,065                                                                                                                                & 0,014      \\
+SprintSpeed     & 3518                                                                                                                                   & 0,065                                                                                                                                & 0,014      \\
+Interceptions   & 3518                                                                                                                                   & 0,063                                                                                                                                & 0,013      \\ \hline
 \end{tabular}
 \label{Tab:GBTImportantAttributes}
 \caption{Important Attributes according to Gradient Boosted Trees algorithm}
 \end{table}
 
-The following table \ref{Tab:ResultOptimizeSelectionGBT} presents the result of the optimize selection operator. Noteworthy are the worst results for predicting a striker, while all goalkeepers were classified correctly. The accuracy is 87,7 \%, weighted recall is 88,58 \% and the weighted precision is 87,10 \%.
+The following table \ref{Tab:ResultOptimizeSelectionGBT} presents the result of the optimize selection operator applied to FIFA18 data. Noteworthy are the worst results for predicting a striker, while all goalkeepers were classified correctly. The overall accuracy was 87,02 \%. Weighted recall is 88,15 \% and weighted precision is 88,88 \%. The root mean squared error is 0,591. 
+
+To test a possible overfitting the model generated from optimize selection operator was applied to new data from FIFA17. After selection and renaming of attributes an accuracy of 87,06 \% was scored. To compare the results to the multiple runs of FIFA19, the values are added in brackets to table \ref{Tab:ResultOptimizeSelectionGBT}. As performance measures the weighted recall of 88,19 \% and weighted precision of 88,20 \% should be mentioned.
+The prediction for goalkeepers and defender worked well again with a recall higher than 91 \%. In the case of defenders the class recall value increased from 91,89 \% to 93,01 \%. The prediction of goalkeepers decreased slightly as a 0,47 \% worse recall was archieved only. The difference to recall for the classes of strikers and midfielder is less than 2 \% in comparision to the FIFA19 testing. With regard to these values an overfitting of the model can be excluded. 
 
 \begin{table}[]
-\begin{tabular}{@{}l|lllll@{}}
-\toprule
-                 & True Defender & True Goalkeeper & True Midfielder & \multicolumn{1}{l|}{True Strikers} & Class precision \\ \midrule
-Pred. Defender   & 5431          & 0               & 475             & \multicolumn{1}{l|}{22}            & 91,62 \%        \\
-Pred. Goalkeeper & 0             & 2025            & 0               & \multicolumn{1}{l|}{0}             & 100 \%          \\
-Pred. Midfielder & 431           & 0               & 5859            & \multicolumn{1}{l|}{769}           & 82,68 \%        \\
-Pred. Strikers   & 4             & 0               & 504             & \multicolumn{1}{l|}{2600}          & 83,66 \%        \\ \midrule
-Class recall     & 92,58\%       & 100 \%          & 85,68 \%        & 76,07 \%                           &                 \\ \bottomrule
+\begin{tabular}{l|lllll}
+\hline
+                 & True Strikers                                               & True Goalkeeper                                             & True Midfielder                                              & \multicolumn{1}{l|}{True Defender}                            & Class precision    \\ \hline
+Pred. Strikers   & 22 (881)                                                    & 0 (0)                                                       & 573 (245)                                                    & \multicolumn{1}{l|}{5390(4)}                                  & 90,6 \% (77,96\%)  \\
+Pred. Goalkeeper & 0 (0)                                                       & 2025 (629)                                                  & 1 (0)                                                        & \multicolumn{1}{l|}{0 (1)}                                    & 99,95\% (99,84\%)  \\
+Pred. Midfielder & 784 (245)                                                   & 0 (2)                                                       & 5765 (2183)                                                  & \multicolumn{1}{l|}{468 (172)}                                & 82,16 \% (83,9\%)  \\
+Pred. Defender   & 2612 (5)                                                    & 0 (1)                                                       & 535 (224)                                                    & \multicolumn{1}{l|}{8 (2357)}                                 & 82,79 \% (91,11\%) \\ \hline
+Class recall     & \begin{tabular}[c]{@{}l@{}}76, 42\%\\ (77,9\%)\end{tabular} & \begin{tabular}[c]{@{}l@{}}100 \% \\ (99,53\%)\end{tabular} & \begin{tabular}[c]{@{}l@{}}84,31 \%\\ (82,32\%)\end{tabular} & \begin{tabular}[c]{@{}l@{}}91,89 \% \\ (93,01\%)\end{tabular} &                    \\ \hline
 \end{tabular}
 \label{Tab:ResultOptimizeSelectionGBT}
 \caption{Confusion Matrix for Gradient Boosted Trees algorithm}
