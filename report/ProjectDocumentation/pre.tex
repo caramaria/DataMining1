@@ -1,9 +1,10 @@
 \section{Preprocessing}
+\label{sec:preprocessing}
 %transformation of data
 
-Not all 83 attributes are necessary to predict the position of a player.
+Not all 86 attributes are necessary to predict the position of a player.
 We applied the optimize selection operator and analyzed the log reports from Rapidminer to select the important attributes.
-During one run the attributes Sliding tackle, Skill move, Long passing, LCB (Left center back), Heading accuracy, LAM (Left attacking midfield), Finishing, Crossing, Sprint speed and LB (left back) were rated with a relative importance. With no influence the other playing position results were weighted. \newline
+During one run the attributes Sliding tackle, Skill move, Long passing, Heading accuracy, Finishing, Crossing and Sprint speed  were rated with a high relative importance. With no influence the other playing position results were weighted. \newline
 %(Bild Einfügen)
 Attributes marked as personal and contract information were excluded from the dataset as they are not relevant to determine players position. 
 The data mining processes started with a higher aggregation of players position which results in four groups: defender, midfielder, strikers and goalkeepers. The following concrete positions were grouped together in an attribute called Position\_grouped replacing the original position attribute:
@@ -26,7 +27,11 @@ The data mining processes started with a higher aggregation of players position 
 \end{itemize}
 \end{itemize}
 
-After this aggregration 6838 midfielders, 2025 goalkeepers, 5866 defender and 3418 strikers (total 18147) are used to train and test the model.
-During the data mining process a second dataset was prepared to test data and a potential overfit of the model. The test data set based on FIFA data from 2017 included 7086 midfielders, 1997 goalkeeper, 5363 defenders and 3293 srikers (total 17739).
+After this aggregration 6838 midfielders, 2025 goalkeepers, 5866 defender and 3418 strikers (total 18147) are used to train the models. Position\_grouped was marked as label in the classification model.
 
-The attributes release clause and wage are reported in a format including k (thousand) and m (million). These values have been converted. The height is converted from foot into centimeter. The weight has been recalculated from pound into kilogram.  For the attributes height and weight zero values are entered if not information is available and needed to be filtered out. The attribute preferred foot converted into a binominal value, meaning 0 for right and 1 for left.
+
+The attributes release clause and wage are reported in a format including k (thousand) and m (million). These values have been converted. The height is converted from foot into centimeter. The weight has been recalculated from pound into kilogram.  For the attributes height and weight zero values are entered if not information is available and needed to be filtered out. The attribute preferred foot converted into a binominal value, meaning 0 for right and 1 for left. %The transformation of this attribute was not necessary as realized later.
+Before the start of the training, examples were a value of position\_grouped was missing were removed.
+
+During the data mining process a second dataset was prepared to test data and a potential overfit of the model. The test data set based on FIFA data from 2017 included 2652 midfielders, 632 goalkeeper, 2534 defenders and 1131 strikers (total 6949).
+Even the FIFA17 dataset was extracted from the sofifa.com database two years ago, attribute names differ from FIFA19 dataset. Rapidminer can not map differently named attributes to the models. Before testing the model an additional reprocessing step was needed to rename upper- and lower case attributes in the right way and change abbreviations like "Free-kick accuracy" into "FKAccuracy".

@@ -1,0 +1,23 @@
+\subsection{Support vector machines}
+
+Support Vector Machines is a linear model for classification and regression problems. The Linear SVM takes a set of input data and predicts, for each given input, which of the two possible classes comprises the input, making the SVM a non-probabilistic binary linear classifier.~\cite{ref_rapidminersvm} \newline The algorithm looks at the extreme cases and draws a decision boundary known as hyperplane. Using Cross validation, Classification and Regression and Linear SVM in it to obtain the results. The result from the optimization consists of C for Linear SVM (the complexity constant which sets the tolerance for misclassification) with the best value of 1.0. The best performing class was goalkeeper 99.80\% and the worst performing class with 79.65\% are strikers. The results from the training are shown in the table \ref{Tab:SVM}.
+
+\begin{table}[]
+\begin{tabular}{@{}l|ll@{}}
+\toprule
+                    & Training & Testing \\ \midrule
+Accuracy            & 85,06 \% & \textbf{83,74\%} \\ \midrule
+Accuracy Goalkeeper & 99,95\%  & 100\%   \\
+Accuracy Defender   & 87,1\%   & 87,9\%  \\
+Accuracy Strikers   & 83,57\%  & 76,1\%  \\
+Accuracy Midfielder & 79,65\%  & 79,04\% \\ \midrule
+Weighted Precision  & 86,44\%  & 85,42\% \\
+Weighted Recall     & 87,87\%  & 85,76\% \\ \bottomrule
+\end{tabular}
+\label{Tab:SVM}
+\caption{Results of support vector machine algorithm}
+\end{table}
+Again, the completely unseen test data from FIFA17 was applied. A change of the value of C in its parameters which allows for "softer" boundaries as lower values create "harder" boundaries were applied~\cite{ref_rapidminersvm2}. A complexity constant that is too large can lead to overfitting, while values that are too small may result in over-generalization. Multiple runs with different values of C were executed to find the optimal values. After training the model  with different values of C, an accuracy decrease with higher values of C was noticed. The value of C=1.0 provides the best result for the test set. 
+
+The final result of this model provides an accuracy of 83.74\% for testing on the FIFA 17 dataset with C=1.0. Thus, applying linear support vector machines let the accuracy decrease by 1.32\%.
+
