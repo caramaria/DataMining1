@@ -1,7 +1,7 @@
 \section{Data Mining}
 
-To identify the best performing classification algorithm on the dataset different available operators were used in Rapidminer. Decision trees, gradient boosted trees, deep learning, support vectore machines, random forest and artifical neural networks are a baseline to compare the results .
-First runs per algorithm were executed using the cross-validation operator. After recall, precision and accuracy scores were available the second phase began. During this phase different approaches are used to maximize the prediction result and finetune the performance scores based on the best performing algorithm identified in phase 1. In a third phase a new test data set were applied based on data from 2017 to check of overfitted models. The models are compared by the metrics of recall, precision and accuracy  at least.\newline
+To identify the best classification algorithm different available operators were used in Rapidminer.
+First runs per algorithm were executed using the cross-validation operator. After recall, precision and accuracy scores were available the second phase began. During this phase different approaches are used to maximize the prediction result and finetune the performance scores based on the best suited algorithm identified in phase 1. In a third phase a new test data set were applied based on data from 2018 to check of overfitted models. \newline
 
 In the following sections the different algorithms and their results of phase 1 are described. 
 Afterwards in section \ref{sec:Evaluation} results are evaluated.
@@ -11,7 +11,10 @@ Finally, a discussion of results is written down in section \ref{sec:DiscussionR
 \input{deepLearning.tex}
 \input{supportvm.tex}
 \input{randomForest.tex}
+\input{KNN.tex}
+
+
+
 
 \input{evaluation.tex}
 \input{result_discussion.tex}
-
