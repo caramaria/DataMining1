@@ -9,43 +9,24 @@ One advantage is the written report about the weights of attributes with respect
 
 The algorithm builds variuos trees focusing to include attributes with higher weights than before. The trees are build on variations of the original dataset. Classification errors from builded trees before are taken into account before building a new tree. ~\cite{ref_towardsGBT}
 
-To run the algorithm a optimize selection operator was applied to test the best combination of maximal tree depth and number of trees. The highest accuracy result was scored building 32 different trees. The maximal depth had no influence according to the operator testing with a step size of 3, since a accuracy of 87 \% was archieved no matter if the tree depth was 10 or 25. 
+To run the algorithm a optimize selection operator was applied to test the best combination of maximal tree depth and number of trees. The highest accuracy result was scored building 32 different trees. The maximal depth had no influence according to the operator testing with a step size of 3, since a accuracy of 87 \% was archieved no matter if the tree depth was 10 or 25. \newline
+The gradient boosted algorithm logs the most important variables to build the model. The identified attributed were HeadingAccuracy (percentage 0,21 \%), SlidingTackle (0,19 \%), Vision (0,17 \%) and Finishing(0,1 \%).
+\newline
+The confusion matrix \ref{Tab:ResultOptimizeSelectionGBT} presents the test results. Noteworthy are the worst results for predicting a striker, while all goalkeepers were classified correctly. The overall accuracy was 87,02 \%. Weighted recall is 88,15 \% and weighted precision is 88,88 \%. 
 
-The gradient boosted algorithm logs the most important variables to build the model. The identified attributed are highlighted in table \ref{Tab:GBTImportantAttributes}:
-
-\begin{table}[]
-\begin{tabular}{@{}llll@{}}
-\toprule
-Variable        & \begin{tabular}[c]{@{}l@{}}Relative \\ Importance\end{tabular} & \begin{tabular}[c]{@{}l@{}}Scales \\ Importance\end{tabular}    & Percentage \\ \midrule
-HeadingAccuracy & 55590                                                                                                                                  & 1                                                                                                                                    & 0,21       \\
-SlidingTackle   & 48785                                                                                                                                  & 0,877                                                                                                                                & 0,19       \\
-Vision          & 45292                                                                                                                                  & 0,814                                                                                                                                & 0,17       \\
-Finishing       & 26549                                                                                                                                  & 0,477                                                                                                                                & 0,10       \\
-LongPassing     & 25082                                                                                                                                  & 0,207                                                                                                                                & 0,09       \\
-Crossing        & 11509                                                                                                                                  & 0,07                                                                                                                                 & 0,04       \\
-ShortPassing    & 3940                                                                                                                                   & 0,0659                                                                                                                               & 0,015      \\
-FKAccuracy      & 3620                                                                                                                                   & 0,065                                                                                                                                & 0,014      \\
-SprintSpeed     & 3518                                                                                                                                   & 0,065                                                                                                                                & 0,014      \\
-Interceptions   & 3518                                                                                                                                   & 0,063                                                                                                                                & 0,013      \\ \hline
-\end{tabular}
-\label{Tab:GBTImportantAttributes}
-\caption{Important Attributes according to Gradient Boosted Trees algorithm}
-\end{table}
-
-The following table \ref{Tab:ResultOptimizeSelectionGBT} presents the result of the optimize selection operator applied to FIFA19 data. Noteworthy are the worst results for predicting a striker, while all goalkeepers were classified correctly. The overall accuracy was 87,02 \%. Weighted recall is 88,15 \% and weighted precision is 88,88 \%. The root mean squared error is 0,591. 
-
-To test a possible overfitting the model generated from optimize selection operator was applied to new data from FIFA17. After selection and renaming of attributes an accuracy of 87,06 \% was scored. To compare the results to the multiple runs of FIFA19, the values are added in brackets to table \ref{Tab:ResultOptimizeSelectionGBT}. As performance measures the weighted recall of 88,19 \% and weighted precision of 88,20 \% should be mentioned.
-The prediction for goalkeepers and defender worked well again with a recall higher than 91 \%. In the case of defenders the class recall value increased from 91,89 \% to 93,01 \%. The prediction of goalkeepers decreased slightly as a 0,47 \% worse recall was archieved only. The difference to recall for the classes of strikers and midfielder is less than 2 \% in comparision to the FIFA19 testing. With regard to these values an overfitting of the model can be excluded. 
+To test a possible overfitting the model generated from optimize selection operator was applied to new data from FIFA17. After selection and renaming of attributes an accuracy of 87,06 \% was scored.  %As performance measures the weighted recall of 88,19 \% and weighted precision of 88,20 \% should be mentioned.
+The prediction for goalkeepers and defender worked well again with a recall higher than 91 \%. In the case of defenders the class recall value increased from 91,89 \% to 93,01 \%. The prediction of goalkeepers decreased slightly as a 0,47 \% worse recall was archieved only. The difference to recall for the classes of strikers and midfielder is less than 2 \% in comparision to the FIFA19 testing during the cross validation. 
 
 \begin{table}[]
+\centering
 \begin{tabular}{l|lllll}
 \hline
-                 & True Strikers                                               & True Goalkeeper                                             & True Midfielder                                              & \multicolumn{1}{l|}{True Defender}                            & Class precision    \\ \hline
-Pred. Strikers   & 2612 (881)                                                    & 0 (0)                                                       & 535 (245)                                                    & \multicolumn{1}{l|}{8(4)}                                  & 90,6 \% (77,96\%)  \\
-Pred. Goalkeeper & 0 (0)                                                       & 2025 (629)                                                  & 1 (0)                                                        & \multicolumn{1}{l|}{0 (1)}                                    & 99,95\% (99,84\%)  \\
-Pred. Midfielder & 784 (245)                                                   & 0 (2)                                                       & 5765 (2183)                                                  & \multicolumn{1}{l|}{468 (172)}                                & 82,16 \% (83,9\%)  \\
-Pred. Defender   & 22 (5)                                                    & 0 (1)                                                       & 537 (224)                                                    & \multicolumn{1}{l|}{5390 (2357)}                                 & 82,79 \% (91,11\%) \\ \hline
-Class recall     & \begin{tabular}[c]{@{}l@{}}76, 42\%\\ (77,9\%)\end{tabular} & \begin{tabular}[c]{@{}l@{}}100 \% \\ (99,53\%)\end{tabular} & \begin{tabular}[c]{@{}l@{}}84,31 \%\\ (82,32\%)\end{tabular} & \begin{tabular}[c]{@{}l@{}}91,89 \% \\ (93,01\%)\end{tabular} &                    \\ \hline
+                 & True Strikers & \begin{tabular}[c]{@{}l@{}}True \\ Goalkeeper\end{tabular} & True Midfielder & \multicolumn{1}{l|}{True Defender} & \begin{tabular}[c]{@{}l@{}}Class \\ precision\end{tabular} \\ \hline
+Pred. Strikers   & 881           & 0                                                          & 245             & \multicolumn{1}{l|}{4}             & 77,96 \%                                                   \\
+Pred. Goalkeeper & 0             & 629                                                        & 0               & \multicolumn{1}{l|}{1}             & 99,84 \%                                                   \\
+Pred. Midfielder & 245           & 2                                                          & 2183            & \multicolumn{1}{l|}{172}           & 83,9 \%                                                    \\
+Pred. Defender   & 5             & 1                                                          & 224             & \multicolumn{1}{l|}{2357}          & 91,11 \%                                                   \\ \hline
+Class recall     & 77,9 \%       & 99,53 \%                                                   & 82,32 \%        & 93,01 \%                           &                                                            \\ \hline
 \end{tabular}
 \label{Tab:ResultOptimizeSelectionGBT}
 \caption{Confusion Matrix for Gradient Boosted Trees algorithm}
