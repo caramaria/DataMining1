@@ -1,7 +1,10 @@
 \subsection{Deep Learning}
 
-The Auto Model function in Rapidminer suggested the Deep Learning operator as the operator with the highest accuracy. Deep Learning is an Operator which is based on an multi layer artificial neural network.~\cite{ref_rapidminerDeepLearning} On the test dataset is scores an accuracy of 87,78 \%. This mainly depends on the number of goalkeepers included in the data set as the goalkeepers are always correctly classified. Besides the goalkeepers the model has the highest accuracy for defenders, followed by midfielders. The lowest accuracy is scored for strikers. %This result matches the expectations as the boundaries between strikers and midfielders are blurry. --> in evaluation enthalten
-%The automatically modeled design is complex and includes many operators that are not contributing to the result. Therefore we tried to slim down the design and deleted operators that were not used. 
+The Auto Model function in Rapidminer suggested the Deep Learning operator as the operator with the highest accuracy. Deep Learning is an Operator which is based on an multi layer artificial neural network. ~\cite{ref_rapidminerDeepLearning} With the Fifa_19 Dataset as trainingdataset and Fifa_17 as testingdataset it scored an accuracy of 87.78\%. The automatically modeled design is complex and includes many operators that are not contributing to the result. Therefore we rebuild the whole model. Only the preprocessing steps and the Deep Learning operator remained from the auto modeled suggestion with a small tweak by changing the epochs from 10 to 20. For performance measurements the Performance (Classification) operator was used. To be able to use both Fifa datasets in one process it was also necessary to rename most of the attributes with the rename operator. \\
+Besides the goalkeepers the model has the highest accuracy for defenders then midfielders and the lowest accuracy for strikers. This result matches the expectations as the boundaries between strikers and midfielders are blurry compared to the attributes defenders and goalkeepers have. \\
+Accuracy: 87.78\% \\
+Weighted mean recall: 88.80\% \\
+Weighted mean precision: 88.75\% \\
 
 \begin{table}[]
 \centering
