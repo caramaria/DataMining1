@@ -1,8 +1,7 @@
 \subsection{K-Nearest Neighbors}
 \label{sec:KNN}
 %K-Nearest Neighbors is one of the algorithms used for classification problem. 
-K-Nearest Neighbors classifies unseen cases based on the k nearest neighbors. As input to train our model FIFA 2019 dataset is used. Firstly, "Optimize Parameters" operator was applied for different values of k (1 to 100) and 10-fold cross validation. The result from the optimization, consists of k values of 62 and an accuracy of 87.83\%. The best performing class was goalkeeper with a precision of 100\% and worst class was midfielder with a precision of 81.45\%. Testing our model on the FIFA 2017 dataset, the following results shown table \ref{tab:knn} were scored.\\
-
+K-Nearest Neighbors classifies unseen cases based on the k nearest neighbors. As input to train our model FIFA 2019 dataset is used. First,``Optimize Parameters" operator was applied for different values of k (1 to 100) and a 10-fold cross validation. The result from the optimization, consists of k values of 62 and an accuracy of 87.83\%. The best performing class was goalkeeper with a precision of 100\% and worst class was midfielder with a precision of 81.45\%. Testing our model on the FIFA 2017 dataset, the following results shown table \ref{tab:knn} were scored.
 
 \begin{table}[]
 \centering
@@ -16,11 +15,9 @@ Weighted precision & 90,08\%       & 88,86\%   \\ \bottomrule
 \label{tab:knn}
 \caption{Results from KNN algorithm on training and test data}
 \end{table}
-
-
 For the first optimization 29 attributes were used, which were meaningful to determine a player position.
 % We did another optimization, this time to determine which attributes were more significant. 
-The "Optimize Selection (Evolutionary)" operator was configured to determine the weights of the selected attributes by using Gini Index and Information Gain. Additionally, the "Optimize Selection" was used. In the table \ref{tab:knn2} are the attributes selected after the optimization.
+The``Optimize Selection (Evolutionary)" operator was configured to determine the weights of the selected attributes by using Gini Index and Information Gain. Additionally, the``Optimize Selection" was used. In the table \ref{tab:knn2} are the attributes selected after the optimization.
 
 \begin{table}[]
 \begin{tabular}{p{3.5cm}|p{7.5cm}l|l}
@@ -29,13 +26,12 @@ Optimize Selection (9) & Crossing, Finishing, HeadingAccuracy, ShortPassing, Dri
 \hline 
 Information Gain (24)& Crossing, Finishing, HeadingAccuracy, ShortPassing, Volleys, Dribbling, FKAccuracy, LongPassing, BallControl, Acceleration, SprintSpeed, Agility, Balance, Jumping, Stamina, Strength, LongShots, Interceptions, Positioning, Composure, Marking, StandingTackle, SlidingTackle, Vision \vspace{0.5cm}\\ 
 \hline 
-Gini Index (21) & Crossing, Finishing, HeadingAccuracy, ShortPassing, LongPassing, BallControl, Acceleration, SprintSpeed, Agility, Balance, Jumping, Stamina, Strength, LongShots, Interceptions, Positioning, Composure, Marking, StandingTackle, SlidingTackle, Vision
+Gini Index (21) & Crossing, Finishing, HeadingAccuracy, ShortPassing, LongPassing, BallControl, Acceleration, SprintSpeed, Agility, Balance, Jumping, Stamina, Strength, LongShots, Interceptions, Positioning, Composure, Marking, StandingTackle, SlidingTackle, Vision\\ \hline
+\end{tabular}
 \label{tab:knn2}
 \caption{Selection of attributes}
-\end{tabular}
 \end{table}	
-
-After the selection of attributes, accuracy increased to 88.28 \% (Optimize Selection), 88.15 \% (Information Gain), 87.97\% (Gini Index). The table \ref{tab:KNNResults} show the results on FIFA 2017 dataset after the optimize selection.
+After selecting the attributes, the accuracy increased to 88.28 \% (Optimize Selection), 88.15 \% (Information Gain), 87.97\% (Gini Index). The table \ref{tab:KNNResults} show the results on FIFA 2017 dataset after the optimize selection.
 
 \begin{table}[]
 \begin{tabular}{@{}llll@{}}
@@ -49,6 +45,6 @@ After the selection of attributes, accuracy increased to 88.28 \% (Optimize Sele
 \caption{Results of KNN on test data}
 \end{table}
 
-As last optimization "Optimize Parameters" operator was used again, but only for the selected attributes with k values (1-100, 100 steps). This resulted to a k = 57 with the subset of attributes from the operator, and a k = 1 for both Information Gain and Gini Index. After this last optimization the test result didn not improve, the accuracy dropped up to 0.2\%.
+As last optimization the ``Optimize Parameters" operator was used again, but only for the selected attributes with k values (1-100, 100 steps). This resulted to a k = 57 with the subset of attributes from the operator, and a k = 1 for both Information Gain and Gini Index. After this last optimization the test result did not improve and the accuracy dropped by 0.2\%.
 %
 %
