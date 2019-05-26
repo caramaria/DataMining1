@@ -1,0 +1,33 @@
+\subsection{Result using Gradient Boosted Trees}
+
+
+The gradient boosted trees algorithm is used to create an ensemble of decision trees trough gradually improved estimations. The output is a classification model which can be applied to the test dataset for a prediction of the label attribute position\_grouped. Using the gradient boosted trees algorithm provides the advantage that a written report about the weights of attributes with respect to the label attribute is created.~\cite{ref_rapidminergbt}
+%%
+%The number of trees was set to 30. The maximal depth was initially set to 15, while the best result was scored with a maximal depth of 30.
+%The number of bins was set to 30.  
+%The process using cross-validation was executed different maximal depth of trees (10, 15, 25 and 30). With less than one percent deviation a recall of 88,21 \% and a precision of 89,01 \% was scored during the four different runs. The mean squared  errors was between 0.32 and 0.33. The best result was scored having a maximal tree depth of 10.
+The algorithm builds variuos trees focusing to include attributes with higher weights than before. The trees are build on variations of the original dataset. Classification errors from builded trees before are taken into account before building a new tree. ~\cite{ref_towardsGBT}
+
+To run the algorithm a optimize selection operator was applied to test the best combination of maximal tree depth and number of trees. The highest accuracy result was scored building 32 different trees. The maximal depth had no influence according to the operator testing with a step size of 3, since a accuracy of 87 \% was archieved no matter if the tree depth was 10 or 25. \newline
+The gradient boosted algorithm logs the most important variables to build the model. The identified attributed were HeadingAccuracy (percentage 0,21 \%), SlidingTackle (0,19 \%), Vision (0,17 \%) and Finishing(0,1 \%).\\
+The confusion matrix \ref{Tab:ResultOptimizeSelectionGBT} presents the test results. Noteworthy are the bad results for predicting a striker, while all goalkeepers were classified correctly. The overall accuracy was 87,02 \%. Weighted recall is 88,15 \% and weighted precision is 88,88 \%. \\
+\begin{table}[h]
+\centering
+\begin{tabular}{l|lllll}
+\hline
+                 & True Strikers & \begin{tabular}[c]{@{}l@{}}True \\ Goalkeeper\end{tabular} & True Midfielder & \multicolumn{1}{l|}{True Defender} & \begin{tabular}[c]{@{}l@{}}Class \\ precision\end{tabular} \\ \hline
+Pred. Strikers   & 881           & 0                                                          & 245             & \multicolumn{1}{l|}{4}             & 77,96 \%                                                   \\
+Pred. Goalkeeper & 0             & 629                                                        & 0               & \multicolumn{1}{l|}{1}             & 99,84 \%                                                   \\
+Pred. Midfielder & 245           & 2                                                          & 2183            & \multicolumn{1}{l|}{172}           & 83,9 \%                                                    \\
+Pred. Defender   & 5             & 1                                                          & 224             & \multicolumn{1}{l|}{2357}          & 91,11 \%                                                   \\ \hline
+Class recall     & 77,9 \%       & 99,53 \%                                                   & 82,32 \%        & 93,01 \%                           &                                                            \\ \hline
+\end{tabular}
+\label{Tab:ResultOptimizeSelectionGBT}
+\caption{Confusion Matrix for Gradient Boosted Trees algorithm}
+\end{table}
+To ensure that the model is not overfitted, the learned model was applied to the FIFA17 data set. After selecting and renaming the attributes an accuracy of 87,06 \% was scored.  %As performance measures the weighted recall of 88,19 \% and weighted precision of 88,20 \% should be mentioned.
+As before, the prediction for goalkeepers and defender worked well with a recall higher than 91 \%. For the defender class the recall value increased by 1,12 \% from 91,89 \% to 93,01 \%. However a decrease in recall by 0,47 \% was measured for the goalkeepers.
+Using the cross validation the difference for the strikers and the midfielder is less than 2 \% compared to the FIFA19 data set.
+
+
+

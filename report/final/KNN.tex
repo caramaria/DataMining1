@@ -1,0 +1,49 @@
+
+\subsection{K-Nearest Neighbors (KNN)}
+\label{sec:KNN}
+K-Nearest Neighbors classifies unseen cases based on the k nearest neighbors. 
+%As input to train our model FIFA 2019 data set is used. 
+First, the ``optimize parameters" operator was applied for values of k between 1 and 100 as well as a 10-fold cross validation. The result of this optimization showed that the ideal value for k = 62 which provides an accuracy of 87.83\%. The best performing class was \textit{goalkeeper} with a precision of 100\% and the worst performing class was midfielder with a precision of 81.45\%. \\
+Applying our model to the FIFA17 test data set the following results could be measured:\\
+\begin{table}[H]
+\label{Tab:knn}
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+                   & Training data & Test data \\ \midrule
+Accuracy           & 87,83\%       & 87,37\%   \\
+Weighted recall    & 88,46\%       & 87,92\%   \\
+Weighted precision & 90,08\%       & 88,86\%   \\ \bottomrule
+\end{tabular}
+\caption{Results from KNN algorithm on training and test data}
+\end{table}
+In phase two of the mining process using KNN we started to optimize the algorithm by optimizing the attributes.
+To do this we used the ``Optimize Selection'' and the ``Optimize Selection (Evolutionary)'' operator which determined the weight for the attributes based on the Gini Index and the Information Gain.
+The optimal attributes are presented in table 4.
+\begin{table}[H]
+\begin{tabular}{p{3.5cm}|p{7.5cm}l|l}
+\hline 
+Optimize Selection (9) & Crossing, Finishing, HeadingAccuracy, ShortPassing, Dribbling, LongPassing, Vision, Marking, SlidingTackle\\
+\hline
+Information Gain (24)& Crossing, Finishing, HeadingAccuracy, ShortPassing, Volleys, Dribbling, FKAccuracy, LongPassing, BallControl, Acceleration, SprintSpeed, Agility, Balance, Jumping, Stamina, Strength, LongShots, Interceptions, Positioning, Composure, Marking, StandingTackle, SlidingTackle, Vision \\
+\hline 
+Gini Index (21) & Crossing, Finishing, HeadingAccuracy, ShortPassing, LongPassing, BallControl, Acceleration, SprintSpeed, Agility, Balance, Jumping, Stamina, Strength, LongShots, Interceptions, Positioning, Composure, Marking, StandingTackle, SlidingTackle, Vision\\ \hline
+\end{tabular}
+\label{Tab:knn2}
+\caption{Selection of attributes}
+\end{table}	
+By selecting the attributes, the accuracy increased to 88.28 \% (Optimize Selection), 88.15 \% (Information Gain), 87.97\% (Gini Index). Table 5 shows the results on FIFA 2017 data set after the optimize selection.
+
+\begin{table}[H]
+\begin{tabular}{@{}llll@{}}
+\toprule
+                                        & Accuracy & Weighted Recall & Weighted Precision \\ \midrule
+\multicolumn{1}{l|}{Optimize Selection} & 87.24\%  & 87.84\%         & 88.56\%            \\
+\multicolumn{1}{l|}{Information Gain}          & 87.39\%  & 87.94\%         & 88.95\%            \\
+\multicolumn{1}{l|}{Gini Index}         & 87.18\%  & 87.70\%         & 88.65\%            \\ \bottomrule
+\end{tabular}
+\label{Tab:KNNResults}
+\caption{Results of KNN on test data}
+\end{table}
+
+As last optimization the ``Optimize Parameters" operator was used again, but only for the selected attributes with k values (1-100, 100 steps). This resulted to a k = 57 with the subset of attributes from the operator, and a k = 1 for both Information Gain and Gini Index. With this last optimization the test results couldn't be improved anymore and the accuracy dropped by 0.2\%.

@@ -1,0 +1,19 @@
+\subsection{Deep Learning}
+
+The automodel function in Rapidminer suggested the Deep Learning operator as the operator with the highest accuracy. Deep Learning is an operator which is based on an multi layer artificial neural network \cite{ref_rapidminerDeepLearning}. With the FIFA19 as training dataset and FIFA17 as testing dataset it scored an accuracy of 87.78\%. The automatically modeled design is complex and includes many operators that are not contributing to the result. After simplifying the model, only the preprocessing steps and the Deep Learning operator remained from the automodeled suggestion with a small tweak by changing the epochs from 10 to 20. %For performance measurements the Performance (Classification) operator was used. To be able to use both Fifa datasets in one process it was also necessary to rename most of the attributes with the rename operator. \\
+Besides the goalkeepers the model has the highest accuracy for defenders then midfielders and the lowest accuracy for strikers.% This result matches the expectations as the boundaries between strikers and midfielders are blurry compared to the attributes defenders and goalkeepers have. \\
+
+\begin{table}[]
+\centering
+\begin{tabular}{@{}l|lllll@{}}
+\toprule
+                 & True Strikers & \begin{tabular}[c]{@{}l@{}}True \\ Goalkeeper\end{tabular} & True Midfielder & \multicolumn{1}{l|}{True Defender} & \begin{tabular}[c]{@{}l@{}}Class \\ precision\end{tabular} \\ \midrule
+Pred. Strikers   & 884           & 0                                                          & 240             & \multicolumn{1}{l|}{4}             & 78,37\%                                                    \\
+Pred. Goalkeeper & 0             & 632                                                        & 0               & \multicolumn{1}{l|}{0}             & 100\%                                                      \\
+Pred. Midfielder & 242           & 0                                                          & 2192            & \multicolumn{1}{l|}{138}           & 85,23\%                                                    \\
+Pred. Defender   & 5             & 0                                                          & 220             & \multicolumn{1}{l|}{2392}          & 91,4\%                                                     \\ \midrule
+Class recall     & 78,16\%       & 100\%                                                      & 82,65\%         & 94,4\%                             &                                                            \\ \bottomrule
+\end{tabular}
+\label{Tab:DeepLearning}
+\caption{Confusion Matrix for deep learning algorithm}
+\end{table}

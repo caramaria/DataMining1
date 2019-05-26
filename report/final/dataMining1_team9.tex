@@ -1,4 +1,3 @@
-
 \documentclass[runningheads]{llncs}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -27,13 +26,8 @@ Prof. Dr. Bizer\\
 University of Mannheim}
 
 \institute{}
-\maketitle              % typeset the header of the contribution
+\maketitle
 \newpage
-%1. What is the problem you are solving?
-%\input{intro.tex}
-%\input{data.tex}
-%\input{pre.tex}
-%\input{datamining.tex}
 
 
 
@@ -69,7 +63,7 @@ The database includes more than 18207 registered players, for each player 86 dif
 Table \ref{tab:SelectionOfAttributes} contains the attributes for each group:
 
 \begin{table}[H]
-\begin{tabular}{p{3.5cm}|p{7.5cm}l|l}
+\begin{tabular}{p{3.5cm}|p{8.5cm}l|l}
 \hline 
 Personal Information & Database ID,  Name, Age, Nationality, Height, Weight\\ 
 \hline 
@@ -89,14 +83,15 @@ Movement Statistics & Acceleration, Sprint Speed, Agility, Reactions, Balance \\
 \hline
 Goalkeeping Statistics & GK Diving, GK Handling, GK Kicking, GK Positioning, GK Reflexes\\
 \hline
-Strength Statistics &  Shot Power, Jumping, Stamina, Strength, Long Shots
+Strength Statistics &  Shot Power, Jumping, Stamina, Strength, Long Shots\\
+\hline
 \end{tabular}
 \label{tab:SelectionOfAttributes}
 \caption{Selection of attributes}
 \end{table}
 In the data set one player is assigned to exactly one position out of 25 available positions. As players might play on different positions during a season or training, the potential for 24 positions (except goalkeeper position) is recognized as well in the data set. The position is written down as abbreviation meaning:
 \begin{table}[H]
-\begin{tabular}{p{3.5cm}|p{7.5cm}l|l}
+\begin{tabular}{p{3.5cm}|p{8.5cm}l|l}
 \hline 
 Forward& 	RF (Right forward), CF (Center forward), LF (Left forward),	RS (Right Striker),	ST (Striker), 	LS (Left Striker), RW (Right wing),	LW (Left wing) \\
 \hline
@@ -118,7 +113,7 @@ The wage and release clauses start with a value of 1000 while the specialty attr
 \section{Preprocessing}
 \label{sec:preprocessing}
 Not all of the 86 attributes are needed to predict the position of a player therefore we applied the ``optimize selection operator'' and analyzed the log reports from Rapidminer to select the important attributes.
-This showed that the following attributes:\textit{ sliding tackle, skill move, long passing, heading accuracy, finishing, crossing and sprint speed} were rated with a high relative importance. With no influence the other playing position results were weighted. More details and results of the attribute selection are described in the data mining chapter section \ref{sec:KNN}.\newline
+This showed that the following attributes:\textit{ sliding tackle, skill move, long passing, heading accuracy, finishing, crossing and sprint speed} were rated with a high relative importance. With no influence the other playing position results were weighted. More details and results of the attribute selection are described in the data mining chapter section \ref{sec:DM}.
 %(Bild Einfügen)
 Attributes marked as personal and contract information were excluded from the data set as they are not relevant to determine a players position. 
 The data mining processes started with a higher aggregation of players position which were joined into four groups: \textit{defender, midfielder, striker and goalkeeper}. The following positions were grouped together into the attribute  \textit{Position\_grouped} replacing the original position attribute:
@@ -146,6 +141,21 @@ The attributes\textit{ release clause} and \textit{wage} are reported in a forma
 Before the start of the training, examples were a value of \textit{position\_grouped} was missing were removed.\\
 During the data mining process a second data set was prepared to test data and a potential overfit of the model. The test data set based on FIFA data from 2017 included 2652 midfielders, 632 goalkeeper, 2534 defenders and 1131 strikers (total 6949).
 The FIFA17 data set was also extracted from the SoFIFA.com database two years ago. However, many of attribute names differ from FIFA19 data set which. Therefore  Rapidminer could not map the attributes directly and additional preprocessing steps were needed that included upper- and lower case renaming as well as changing abbreviations like "Free-kick accuracy" into "FKAccuracy".
+
+
+\section{Data Mining}
+\label{sec:DM}
+To identify the best suited classification algorithm for our problem we applied K-Nearest Neighbors (KNN), Decision Trees, Gradient Boosted Trees, Deep Learning, Supported Vector Machines and Random Forest to the FIFA2019 data set.
+Our mining process was separated in three phases: First, we ran the ''cross validation'' operator for each algorithm. Once we had first results for recall, precision and accuracy we transitioned in the second phase, where we aimed to optimize the results for each algorithm. Finally in the third phase we tested our learned models. To ensure that our models are neither under- nor overfitted we used the FIFA17 data set which varies from the FIFA19 data set.
+In the following sections the different algorithms and their results from the first and second phase are presented.
+
+\input{KNN.tex}
+\input{gradientBoosted.tex}
+\input{deepLearning.tex}
+\input{supportvm.tex}
+\input{randomForest.tex}
+\input{evaluation.tex}
+\input{result_discussion.tex}
 
 
 
