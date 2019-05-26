@@ -1,9 +1,6 @@
 \subsection{Deep Learning}
-
-The automodel function in Rapidminer suggested the Deep Learning operator as the operator with the highest accuracy. Deep Learning is an operator which is based on an multi layer artificial neural network \cite{ref_rapidminerDeepLearning}. With the FIFA19 as training dataset and FIFA17 as testing dataset it scored an accuracy of 87.78\%. The automatically modeled design is complex and includes many operators that are not contributing to the result. After simplifying the model, only the preprocessing steps and the Deep Learning operator remained from the automodeled suggestion with a small tweak by changing the epochs from 10 to 20. %For performance measurements the Performance (Classification) operator was used. To be able to use both Fifa datasets in one process it was also necessary to rename most of the attributes with the rename operator. \\
-Besides the goalkeepers the model has the highest accuracy for defenders then midfielders and the lowest accuracy for strikers.% This result matches the expectations as the boundaries between strikers and midfielders are blurry compared to the attributes defenders and goalkeepers have. \\
-
-\begin{table}[]
+The deep learning (DL) algorithm is based on an multi layer artificial neural network \cite{ref_rapidminerDeepLearning} and is one of the most promising machine learning algorithm. DL is making major advances in solving problems that have resisted the best attempts of the artificial intelligence community for many years. It has turned out to be very good at discovering intricate structures in high-dimensional data and is therefore applicable to many domains of science, business and government. Additionally DL is beating records in various areas such as image recognition and speech recognition \cite{ref_DL}. Therefore we decided to apply DL to our classification problem. Because DL is a very complex algorithm we used RapidMiners automated modeling functionality for this algorithm. By applying the the learned model to the test data set we were able to score an overall accuracy of 87.78\%.  The result of the confusion matrix is presented in table 7.
+\begin{table}[H]
 \centering
 \begin{tabular}{@{}l|lllll@{}}
 \toprule
