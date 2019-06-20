@@ -1,14 +1,12 @@
 \subsection{Evaluation setup and results}
 \label{sec:Evaluation}
-In this section the results of the used algorithms are summarized. To test a possible overfitting the model generated from optimize selection operator was applied to new data from FIFA17 as described earlier. 
-
-Table 10 shows the performance scores accuracy, recall and precision for the models. 
-
+In this section the results of the used algorithms are summarized. To test a possible overfitting the model generated from optimize selection operator was applied to new data from FIFA17 as described earlier. \\
+Table 9 shows the performance scores accuracy, recall and precision for the models. 
 \begin{table}[]
 \centering
 \begin{tabular}{@{}llll@{}}
-\toprule
-                                                                                        & Accuracy         & Weighted Recall  & Weighted Precision \\ \midrule
+\hline
+                                                                                        & Accuracy         & Weighted Recall  & Weighted Precision \\ \hline
 \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Gradient Boosted\\   Trees\end{tabular}} & 87,06\%          & 88,19\%          & 88,20\%            \\
 \multicolumn{1}{l|}{Random Forest}                                                      & \textbf{88,67\%} & \textbf{89,25\%} & \textbf{89,81\%}   \\
 \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Support Vector \\ Machines\end{tabular}} & 83,74\%          & 85,76\%          & 85,42\%            \\
@@ -18,9 +16,6 @@ Table 10 shows the performance scores accuracy, recall and precision for the mod
 \label{tab:AllTestResults}
 \caption{Performance scores from test run}
 \end{table}
-
-The model built with random forest algorithm performs best on the test data. Since the classification of a soccer players position is a multi-class problem random forest works better than support vector machines on this problem. Recall and Precision for support vectore machines model are the lowest values in comparison with all other models. The deep learning algorithm performed good as well since a lot of training data was available, one main requirement to apply this algorithm. 
-
-Starting with the simplest model KNN and decision tree were the first choice. But decision trees are trained on the complete data model, while random forest trees are learned on random samples. This optimize the node boundaries, the diversity of nodes and the robustness of the model  ~\cite{ref_towardsRFvsDecision}.
-
-The model of gradient boosted trees performs worse than random forest. According to Ravanshad ~\cite{ref_RFvsGBT} random forest and gradient boosted trees are different in the way the trees are built. While gradient boosted trees work better on unbalanced data, which was not the given case, random forest are harder to overfit. Less overfitting potential was decisive advantage as the test was executed on an completely unseen dataset.
+The model built with random forest algorithm performs best on the test data. Since the classification of a soccer players position is a multi-class problem random forest works better than support vector machines on this problem. Recall and Precision for support vector machines model are the lowest values in comparison with all other models. The deep learning algorithm performed good as well since a lot of training data was available, one main requirement to apply this algorithm. \\
+Starting with the simplest model KNN and decision tree were the first choice. But decision trees are trained on the complete data model, while random forest trees are learned on random samples. This optimize the node boundaries, the diversity of nodes and the robustness of the model  ~\cite{ref_towardsRFvsDecision}.\\
+The model of gradient boosted trees performs worse than random forest. According to Ravanshad ~\cite{ref_RFvsGBT} random forest and gradient boosted trees are different in the way the trees are built. While gradient boosted trees work better on unbalanced data, which was not the given case, random forest are harder to overfit. Less overfitting potential was decisive advantage as the test was executed on an completely unseen data set.

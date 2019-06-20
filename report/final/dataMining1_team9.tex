@@ -1,10 +1,8 @@
 \documentclass[runningheads]{llncs}
 \usepackage{graphicx}
-\usepackage{booktabs}
 \usepackage{multicol}
 \usepackage{tabularx}
-\usepackage{float}
-\restylefloat{table}
+
 
 
 \begin{document}
@@ -30,46 +28,26 @@ University of Mannheim}
 \newpage
 
 
-
-%------------------------------------ Here goes out content
 \section{Application Area and Goals}
-\label{intro}
 With soccer being the most popular sport worldwide it is not surprising that a good player is very expensive and that the soccer clubs are investing a lot of effort into the development of young talents \cite{ref_Transfermarkt}. One important aspect in the development of young talents is to identify the ideal position, so the player can exploit his full potential.
-The question that arises is, are there specific attributes a goalkeeper, defender, midfielder and striker need to have? Is an ideal goalkeeper very tall and is it important that a defender has a stocky body type?\\
-One way to evaluate if pattern exist is to analyze current soccer player and the position they are fulfilling. To do this we are using the FIFA 19 Dataset which is available on Kaggle.\\
-FIFA 19 is a popular football simulation game based on the world class soccer player which was developed and released by Electronic Arts in September 2018. \\
-The three main challenges for Data Scientists are collecting a significant amount of training data, cleaning and organizing the data as well as applying models  \cite{ref_Crowdflower}. Each challenge is time consuming which results into high cost.\\
+The question that arises is, are there specific attributes a goalkeeper, defender, midfielder and striker need to have? Is an ideal goalkeeper very tall and is it important that a defender has a stocky body type?\newline
+One way to evaluate if pattern exist is to analyze current soccer player and the position they are fulfilling. To do this we are using the FIFA 19 Dataset which is available on Kaggle.\newline
+FIFA 19 is a popular football simulation game based on the world class soccer player which was developed and released by Electronic Arts in September 2018. \newline
+The three main challenges for Data Scientists are collecting a significant amount of training data, cleaning and organizing the data as well as applying models  \cite{ref_Crowdflower}. Each challenge is time consuming which results into high cost.\newline
 In this paper we will evaluate different classification approaches, apply prepossessing methods an perform a comparison in terms of accuracy. For prepossessing the data, attributes were cleansed, some excluded and aggregated. A detailed description can be read in chapter \ref{sec:preprocessing}.
-By applying different classification approaches an identification of the best approach to predict a players field position for unseen records is expected.
+By applying different classification approaches an identification of the best approach to predict a player's field position for unseen records is expected.
 
 \section{Structure and Size of the Data}
 In this project, which focuses on soccer analytics, the FIFA 19 dataset from Kaeggle is used. It includes information about every player who is registered to the SoFIFA database \cite{ref_sofifa}. 
-The database includes more than 18207 registered players, for each player 86 different attributes are available. The attributes can be grouped in the following 10 groups: 
-\begin{multicols}{2}
-	\begin{enumerate}
-	\item Personal information
-	\item Contract Information
-	\item Mental and Physical Capabilities
-	\item Sports and Soccer Statistics
-	\item Attacking Statistics  
-	\item Skill Statistics
-	\item Defending Statistics
-	\item Movement Statistics
-	\item Goalkeeping Statistics
-	\item Strength Statistics
-\end{enumerate}
-\end{multicols}
-
-Table 1 contains the attributes for each group:
-
-\begin{table}[H]
+The database includes more than 18207 registered players, for each player 86 different attributes are available. The attributes can be grouped in ten groups. Table 1 contains the attributes for each group:
+\begin{table}[h]
 \begin{tabular}{p{3.5cm}|p{8.5cm}l|l}
 \hline 
-Personal Information & Database ID,  Name, Age, Nationality, Height, Weight\\ 
+Personal Information & Database ID,  Name, Age, Nationality, Height, Weight\\
 \hline 
-Contract Infromation &  Club, Wage, Release Clause, Jersey Number, Joined date, Loaned from, Contact valid until \\
+Contract Information &  Club, Wage, Release Clause, Jersey Number, Joined date, Loaned from, Contact valid until \\
 \hline 
- Mental and Physical Capabilities & Agression, Interceptions, Positioning, Vision, Penalties, Composure\\
+ Mental and Physical Capabilities & Aggression, Interceptions, Positioning, Vision, Penalties, Composure\\
 \hline
 Sports and Soccer Information & Value, International Reputation, Overall Ranking, Potential (correlation to overall ranking), Special, Position (club), Position (national team), Preferred Foot, Week Foot, Skill Moves, Work Rate Defense, Work Rate, Attacking, Body Type,  Real Face \\
 \hline
@@ -90,25 +68,26 @@ Strength Statistics &  Shot Power, Jumping, Stamina, Strength, Long Shots\\
 \caption{Selection of attributes}
 \end{table}
 In the data set one player is assigned to exactly one position out of 25 available positions. As players might play on different positions during a season or training, the potential for 24 positions (except goalkeeper position) is recognized as well in the data set. The position is written down as abbreviation meaning:
-\begin{table}[H]
-\begin{tabular}{p{3.5cm}|p{8.5cm}l|l}
-\hline 
-Forward& 	RF (Right forward), CF (Center forward), LF (Left forward),	RS (Right Striker),	ST (Striker), 	LS (Left Striker), RW (Right wing),	LW (Left wing) \\
-\hline
-Midfielder & 	LAM (Left attacking midfield), RAM (Right attacking midfield), CAM (Center attacking midfield), LM (Left midfield), CM (Central midfield), LCM (Left center midfield), (Right center midfield), RM (Right midfield),	LDM (Left defensive midfield), CDM (Center defensive midfield), RDM (Right defensive midfield)\\
-\hline
-Defensive & 
-	LWB (Left Wing Back), RWB (Right Wing Back), LCB (Left center back), LB Left back), RCB (Right center back), CB (Center back), RB (Right back)\\
-\hline
-\end{tabular}
-\label{tab:SelectionOfAttributes2}
-\caption{Selection of attributes}
-\end{table}
+%\begin{table}[h]
+%\begin{tabular}{p{3.5cm}|p{8.5cm}l|l}
+%\hline 
+%Forward& 	RF (Right forward), CF (Center forward), LF (Left forward),	RS (Right Striker),	ST (Striker), 	LS (Left Striker), RW (Right wing),	LW (Left wing) \\
+%\hline
+%Midfielder & 	LAM (Left attacking midfield), RAM (Right attacking midfield), CAM (Center attacking midfield), LM (Left midfield), CM (Central midfield), LCM (Left center midfield), (Right center midfield), RM (Right midfield),	LDM (Left defensive midfield), CDM (Center defensive midfield), RDM (Right defensive midfield)\\
+%\hline
+%Defensive & 
+%	LWB (Left Wing Back), RWB (Right Wing Back), LCB (Left center back), LB Left back), RCB (Right center back), CB (Center back), RB (Right back)\\
+%\hline
+%\end{tabular}
+%\label{tab:SelectionOfAttributes2}
+%\caption{Selection of attributes}
+%\end{table}
 These position potentials are not applied for goalkeepers. 
 Not all the attributes have filled values. One example is the \textit{loaned\_from} field which does not contain values for all the players since not every player is loaned from another club. Another reason for the missing information is that some players are young and not all the information has been collected yet. 
 Analyzing the data set showed that there are 48 players were only key attributes like personal information are provided. \\
-Attributes of the statistical groups are continuous data with a range from 0 to 100. Other attributes are categorical data. Furthermore the data set includes numerical attributes like wage, release clause, weight and height.
+Attributes of the statistical groups are continuous data with a range from 0 to 100. Other attributes are categorical data. Furthermore, the data set includes numerical attributes like wage, release clause, weight and height.
 The wage and release clauses start with a value of 1000 while the specialty attribute is not smaller than 731.
+
 
 \section{Preprocessing}
 \label{sec:preprocessing}
@@ -116,7 +95,7 @@ Not all of the 86 attributes are needed to predict the position of a player ther
 This showed that the following attributes:\textit{ sliding tackle, skill move, long passing, heading accuracy, finishing, crossing and sprint speed} were rated with a high relative importance. With no influence the other playing position results were weighted. More details and results of the attribute selection are described in the data mining chapter section \ref{sec:DM}.
 %(Bild Einfügen)
 Attributes marked as personal and contract information were excluded from the data set as they are not relevant to determine a players position. 
-The data mining processes started with a higher aggregation of players position which were joined into four groups: \textit{defender, midfielder, striker and goalkeeper}. The following positions were grouped together into the attribute  \textit{Position\_grouped} replacing the original position attribute:
+The data mining processes started with a higher aggregation of player's position which were joined into four groups: \textit{defender, midfielder, striker and goalkeeper}. The following positions were grouped together into the attribute  \textit{Position\_grouped} replacing the original position attribute:
 
 \begin{itemize} 
 \item[] Striker:
@@ -139,14 +118,14 @@ The data mining processes started with a higher aggregation of players position 
 After applying this aggregation 6838 midfielders, 2025 goalkeepers, 5866 defender and 3418 strikers (total 18147) are used to train the models. \textit{Position\_grouped }was marked as label in the classification model.\\
 The attributes\textit{ release clause} and \textit{wage} are reported in a format including k (thousand) and m (million). These values have been converted. The \textit{height} is converted from foot into centimeter. The \textit{weight} has been recalculated from pound into kilogram. If there was no information provided for \textit{height} and \textit{weight} null values were added which allowed to exclude them by filtering. The attribute \textit{preferred foot }converted into a binomial value, meaning 0 for right and 1 for left. %The transformation of this attribute was not necessary as realized later.
 Before the start of the training, examples were a value of \textit{position\_grouped} was missing were removed.\\
-During the data mining process a second data set was prepared to test data and a potential overfit of the model. The test data set based on FIFA data from 2017 included 2652 midfielders, 632 goalkeeper, 2534 defenders and 1131 strikers (total 6949).
+During the data mining process, a second data set was prepared to test data and a potential overfit of the model. The test data set based on FIFA data from 2017 included 2652 midfielders, 632 goalkeeper, 2534 defenders and 1131 strikers (total 6949).
 The FIFA17 data set was also extracted from the SoFIFA.com database two years ago. However, many of attribute names differ from FIFA19 data set which. Therefore  Rapidminer could not map the attributes directly and additional preprocessing steps were needed that included upper- and lower case renaming as well as changing abbreviations like "Free-kick accuracy" into "FKAccuracy".
 
 
 \section{Data Mining}
 \label{sec:DM}
 To identify the best suited classification algorithm for our problem we applied K-Nearest Neighbors (KNN), Decision Trees, Gradient Boosted Trees, Deep Learning, Supported Vector Machines and Random Forest to the FIFA2019 data set.
-Our mining process was separated in three phases: First, we ran the ''cross validation'' operator for each algorithm. Once we had first results for recall, precision and accuracy we transitioned in the second phase, where we aimed to optimize the results for each algorithm. Finally in the third phase we tested our learned models. To ensure that our models are neither under- nor overfitted we used the FIFA17 data set which varies from the FIFA19 data set.
+Our mining process was separated in three phases: First, we ran the ''cross validation'' operator for each algorithm. Once we had first results for recall, precision and accuracy we transitioned in the second phase, where we aimed to optimize the results for each algorithm. Finally, in the third phase we tested our learned models. To ensure that our models are neither under- nor overfitted we used the FIFA17 data set which varies from the FIFA19 data set.
 In the following sections the different algorithms and their results from the first and second phase are presented.
 
 \input{KNN.tex}

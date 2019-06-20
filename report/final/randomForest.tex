@@ -8,16 +8,16 @@ For the first combination of values the following results were scored: $accuracy
 value combinations mentioned above. 
 Besides accuracy also gain ratio, information gain and gini index where used as splitting criterion. 
 The best result was archived with 76 trees and a maximal depth of 100, using information gain as splitting criterion. 
-The results for this value combination are shown in table 9.
-\begin{table}[H]
+The results for this value combination are shown in table 8.
+\begin{table}[h]
 \centering
 \begin{tabular}{@{}llll@{}}
-\toprule
-Splitting criterion                            & Accuracy         & Weighted Recall  & Weighted Precision \\ \midrule
+\hline
+Splitting criterion                            & Accuracy         & Weighted Recall  & Weighted Precision \\ \hline
 \multicolumn{1}{l|}{Accuracy}                  & 84,63\%          & 85,77\%          & 87,13\%            \\
 \multicolumn{1}{l|}{Gain Ratio}                & 87,55\%          & 87,67\%          & 89,24\%            \\
 \multicolumn{1}{l|}{\textbf{Information Gain}} & \textbf{88,67\%} & \textbf{89,25\%} & \textbf{89,81\%}   \\
-\multicolumn{1}{l|}{GINI index}                & 88,62\%          & 89,23\%          & 89,70\%            \\ \bottomrule
+\multicolumn{1}{l|}{GINI index}                & 88,62\%          & 89,23\%          & 89,70\%            \\ \hline
 \end{tabular}
 \label{tab:RandomForest}
 \caption{Results of random forest model on test data}

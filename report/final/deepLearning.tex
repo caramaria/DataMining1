@@ -1,15 +1,15 @@
 \subsection{Deep Learning}
-The deep learning (DL) algorithm is based on an multi layer artificial neural network \cite{ref_rapidminerDeepLearning} and is one of the most promising machine learning algorithm. DL is making major advances in solving problems that have resisted the best attempts of the artificial intelligence community for many years. It has turned out to be very good at discovering intricate structures in high-dimensional data and is therefore applicable to many domains of science, business and government. Additionally DL is beating records in various areas such as image recognition and speech recognition \cite{ref_DL}. Therefore we decided to apply DL to our classification problem. Because DL is a very complex algorithm we used RapidMiners automated modeling functionality for this algorithm. By applying the the learned model to the test data set we were able to score an overall accuracy of 87.78\%.  The result of the confusion matrix is presented in table 7.
-\begin{table}[H]
+The deep learning (DL) algorithm is based on an multi layer artificial neural network \cite{ref_rapidminerDeepLearning} and is one of the most promising machine learning algorithm. DL is making major advances in solving problems that have resisted the best attempts of the artificial intelligence community for many years. It has turned out to be very good at discovering intricate structures in high-dimensional data and is therefore applicable to many domains of science, business and government. Additionally DL is beating records in various areas such as image recognition and speech recognition \cite{ref_DL}. Therefore we decided to apply DL to our classification problem. Because DL is a very complex algorithm we used RapidMiners automated modeling functionality for this algorithm. By applying the the learned model to the test data set we were able to score an overall accuracy of 87.78\%.  The result of the confusion matrix is presented in table 6.
+\begin{table}[h]
 \centering
 \begin{tabular}{@{}l|lllll@{}}
-\toprule
-                 & True Strikers & \begin{tabular}[c]{@{}l@{}}True \\ Goalkeeper\end{tabular} & True Midfielder & \multicolumn{1}{l|}{True Defender} & \begin{tabular}[c]{@{}l@{}}Class \\ precision\end{tabular} \\ \midrule
+\hline
+                 & True Strikers & \begin{tabular}[c]{@{}l@{}}True \\ Goalkeeper\end{tabular} & True Midfielder & \multicolumn{1}{l|}{True Defender} & \begin{tabular}[c]{@{}l@{}}Class \\ precision\end{tabular} \\ \hline
 Pred. Strikers   & 884           & 0                                                          & 240             & \multicolumn{1}{l|}{4}             & 78,37\%                                                    \\
 Pred. Goalkeeper & 0             & 632                                                        & 0               & \multicolumn{1}{l|}{0}             & 100\%                                                      \\
 Pred. Midfielder & 242           & 0                                                          & 2192            & \multicolumn{1}{l|}{138}           & 85,23\%                                                    \\
-Pred. Defender   & 5             & 0                                                          & 220             & \multicolumn{1}{l|}{2392}          & 91,4\%                                                     \\ \midrule
-Class recall     & 78,16\%       & 100\%                                                      & 82,65\%         & 94,4\%                             &                                                            \\ \bottomrule
+Pred. Defender   & 5             & 0                                                          & 220             & \multicolumn{1}{l|}{2392}          & 91,4\%                                                     \\ \hline
+Class recall     & 78,16\%       & 100\%                                                      & 82,65\%         & 94,4\%                             &                                                            \\ \hline
 \end{tabular}
 \label{Tab:DeepLearning}
 \caption{Confusion Matrix for deep learning algorithm}
